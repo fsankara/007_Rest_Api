@@ -16,6 +16,22 @@ services:
       - PGHOST=node_db
     depends_on:
       - node_db
+
+  pgadmin4:
+    container_name: pgadmin4
+    image : "dpage/pgadmin4:latest"
+    ports :
+      - "5050:5050"
+    environment:
+      - PGADMIN_LISTEN_PORT=5050
+      - PGADMIN_DEFAULT_EMAIL=fullstackankara@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=kenan1234*
+      - PGHOST=node_db
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - node_db
+
   node_db:
     container_name: node_db
     image : "postgres:14"
@@ -27,7 +43,9 @@ services:
       - POSTGRES_DB=restapi_db
     volumes:
       - nps_data:/var/lib/postgresql/data
+  
 
 volumes:
   nps_data: {}
+  pgadmin: {}
     
