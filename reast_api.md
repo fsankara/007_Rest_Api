@@ -34,4 +34,8 @@
 
 - > docker exec -it 50  psql -U kenan restapi_db
 
+## pgadmin4 eklendi
+
+- 
+
 
