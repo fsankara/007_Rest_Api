@@ -14,6 +14,8 @@ services:
       - PGUSER=kenan
       - PGPASSWORD=kenan1234*
       - PGHOST=node_db
+    volumes:
+      - .:/src
     depends_on:
       - node_db
 
